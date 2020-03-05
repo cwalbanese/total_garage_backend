@@ -27,9 +27,6 @@ SECRET_KEY = 'zn23(b51u82o#@^&2(=prnct9v35qf4sisg$+eq0n448na*)nk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'total-garage.herokuapp.com']
 
@@ -108,6 +105,8 @@ DATABASES = {
     }
 }
 
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -145,3 +144,5 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
+
+django_heroku.settings(locals())
