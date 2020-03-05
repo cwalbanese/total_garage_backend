@@ -28,7 +28,7 @@ SECRET_KEY = 'zn23(b51u82o#@^&2(=prnct9v35qf4sisg$+eq0n448na*)nk'
 DEBUG = True
 
 db_from_env = dj_database_url.config()
-DATABASES[‘default’].update(db_from_env)
+DATABASES['default'].update(db_from_env)
 
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'total-garage.herokuapp.com']
