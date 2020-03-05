@@ -1,0 +1,1 @@
+web: gunicorn total_garage.wsgi —-log-file -
