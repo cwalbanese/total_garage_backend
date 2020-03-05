@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'garage.apps.CoreConfig',
+    'garage.apps.GarageConfig',
 ]
 
 JWT_AUTH = {
@@ -94,8 +94,11 @@ WSGI_APPLICATION = 'total_garage.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'garage',
+        'USER': 'garageuser',
+        'PASSWORD': 'garage',
+        'HOST': 'localhost'
     }
 }
 

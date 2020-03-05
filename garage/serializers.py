@@ -1,6 +1,21 @@
 from rest_framework import serializers
 from rest_framework_jwt.settings import api_settings
 from django.contrib.auth.models import User
+from .models import Year, Repair
+
+
+class YearSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Year
+        fields = '__all__'
+
+class RepairSerializer(serializers.ModelSerializer):
+  
+    class Meta:
+        model = Repair
+        fields = '__all__'
+
 
 
 class UserSerializer(serializers.ModelSerializer):

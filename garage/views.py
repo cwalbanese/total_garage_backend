@@ -1,10 +1,29 @@
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
-from rest_framework import permissions, status
+from rest_framework import permissions, status, generics
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import UserSerializer, UserSerializerWithToken
+from .serializers import UserSerializer, UserSerializerWithToken, YearSerializer, RepairSerializer
+from .models import Year, Repair
+
+
+class YearList(generics.ListCreateAPIView):
+    queryset = Year.objects.all()
+    serializer_class = YearSerializer
+
+class YearSpecific(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Year.objects.all()
+    serializer_class = YearSerializer
+
+class RepairList(generics.ListCreateAPIView):
+    queryset = Repair.objects.all()
+    serializer_class = RepairSerializer
+
+class RepairSpecific(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Repair.objects.all()
+    serializer_class = RepairSerializer
+
 
 
 @api_view(['GET'])

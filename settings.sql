@@ -1,0 +1,4 @@
+CREATE DATABASE garage;
+CREATE USER garageuser
+WITH PASSWORD 'garage';
+GRANT ALL PRIVILEGES ON DATABASE garage TO garageuser;
