@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+import dj-database-url
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,6 +26,9 @@ SECRET_KEY = 'zn23(b51u82o#@^&2(=prnct9v35qf4sisg$+eq0n448na*)nk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+db_from_env = dj_database_url.config()
+DATABASES[‘default’].update(db_from_env)
 
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'total-garage.herokuapp.com']
@@ -137,9 +142,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR, ‘staticfiles’)
