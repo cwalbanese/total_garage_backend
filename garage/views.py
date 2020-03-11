@@ -8,14 +8,6 @@ from .serializers import UserSerializer, UserSerializerWithToken, RepairSerializ
 from .models import Repair
 
 
-# class YearList(generics.ListCreateAPIView):
-#     queryset = Year.objects.all()
-#     serializer_class = YearSerializer
-
-# class YearSpecific(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Year.objects.all()
-#     serializer_class = YearSerializer
-
 class RepairList(generics.ListCreateAPIView):
     queryset = Repair.objects.all()
     serializer_class = RepairSerializer
