@@ -13,7 +13,7 @@ class Repair(models.Model):
     make = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
     miles = models.CharField(max_length=100)
-    repair = models.CharField(max_length=500)
+    repair = models.TextField(max_length=255)
 
     def __str__(self):
-        return self.model
+        return self.repair
