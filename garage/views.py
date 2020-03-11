@@ -5,16 +5,16 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import UserSerializer, UserSerializerWithToken, YearSerializer, RepairSerializer
-from .models import Year, Repair
+from .models import Repair
 
 
-class YearList(generics.ListCreateAPIView):
-    queryset = Year.objects.all()
-    serializer_class = YearSerializer
+# class YearList(generics.ListCreateAPIView):
+#     queryset = Year.objects.all()
+#     serializer_class = YearSerializer
 
-class YearSpecific(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Year.objects.all()
-    serializer_class = YearSerializer
+# class YearSpecific(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Year.objects.all()
+#     serializer_class = YearSerializer
 
 class RepairList(generics.ListCreateAPIView):
     queryset = Repair.objects.all()
