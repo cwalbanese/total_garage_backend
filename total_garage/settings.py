@@ -60,7 +60,6 @@ INSTALLED_APPS = [
 
 JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'total_garage.utils.my_jwt_response_handler',
-    'JWT_VERIFY_EXPIRATION': False,
 }
 
 MIDDLEWARE = [
