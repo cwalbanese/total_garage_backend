@@ -7,7 +7,7 @@
 
 ![Total Garage Preview](https://i.imgur.com/RlbKnEV.png)
 
-### Technologies Used
+### Technology Used
 
 - Python
 - Django
@@ -21,7 +21,7 @@ All repairs:
 
 - /garage/repairs
 
-One repairby DB ID:
+One repair by DB ID:
 
 - /garage/repairs/:id
 
