@@ -7,32 +7,29 @@ from rest_framework.views import APIView
 from .serializers import UserSerializer, UserSerializerWithToken, RepairSerializer
 from .models import Repair
 
+# Repair model API view for GET and POST requests from frontend
 
 class RepairList(generics.ListCreateAPIView):
     queryset = Repair.objects.all()
     serializer_class = RepairSerializer
 
+# Repair model API view for GET, PUT, DELETE requests from frontend
 class RepairSpecific(generics.RetrieveUpdateDestroyAPIView):
     queryset = Repair.objects.all()
     serializer_class = RepairSerializer
 
-
+# JWT Authentication, find out who current user is and return the data to be used on frontend
 
 @api_view(['GET'])
 def current_user(request):
-    """
-    Determine the current user by their token, and return their data
-    """
     
     serializer = UserSerializer(request.user)
     return Response(serializer.data)
 
 
+# JWT Authentication, create a new user
+
 class UserList(APIView):
-    """
-    Create a new user. It's called 'UserList' because normally we'd have a get
-    method here too, for retrieving a list of all User objects.
-    """
 
     permission_classes = (permissions.AllowAny,)
 
@@ -42,4 +39,3 @@ class UserList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-# Create your views here.
