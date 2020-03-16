@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+import datetime
+
 import os
 
 import dj_database_url
@@ -60,6 +62,7 @@ INSTALLED_APPS = [
 
 JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'total_garage.utils.my_jwt_response_handler',
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7)
 }
 
 MIDDLEWARE = [
